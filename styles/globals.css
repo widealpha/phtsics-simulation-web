@@ -1,21 +1,14 @@
-body {
-
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #21293b;
 }
 
-.index-menu-icon {
-    padding: 20px;
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: blueviolet !important;
+    font-weight: 500;
 }
-
-.setting-menu {
-    background: #39404b;
-    color: white;
-}
-
-.menu-header {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.menu-header-selected {
-    color: dodgerblue;
+.ant-tabs-tab{
+    color: white !important;
 }
