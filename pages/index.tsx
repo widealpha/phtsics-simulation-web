@@ -7,9 +7,17 @@ const inter = Inter({subsets: ["latin"]});
 export default function Home() {
     return (
         <main>
-            <Link href={'/home'}>
-                主页面
-            </Link>
+            <div>
+                <Link style={{color: "white"}} href={'/home'}>
+                    主页面
+                </Link>
+            </div>
+            <div>
+                <Link style={{color: "white"}} href={'/showcase'}>
+                    展示界面
+                </Link>
+            </div>
+
         </main>
     );
 }

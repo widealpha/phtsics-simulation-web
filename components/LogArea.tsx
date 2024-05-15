@@ -1,10 +1,9 @@
-import {Collapse, CollapseProps, Divider} from "antd";
 import {CARD_COLOR, DIVIDER_COLOR, PRIMARY_COLOR} from "@/constants/colors";
 import CodeMirror from '@uiw/react-codemirror';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import {Typography} from "@mui/material";
+import {Divider, Typography} from "@mui/material";
 
 export default function LogArea({log}: { log: string }) {
     console.log(log)
@@ -24,6 +23,5 @@ export default function LogArea({log}: { log: string }) {
                 </Accordion>
             </div>
         </>
-
     );
 }

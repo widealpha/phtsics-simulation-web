@@ -1,12 +1,11 @@
-import {Card, Flex} from "antd";
-// import {Tabs} from 'antd';
-import type {TabsProps} from 'antd';
 import React, {useState} from "react";
 import GeometrySetting from "@/components/settings/GeometrySetting";
-import {PRIMARY_COLOR} from "@/constants/colors";
+import {CARD_COLOR, PRIMARY_COLOR} from "@/constants/colors";
 import {Tab, Tabs} from "@mui/material";
 import CustomTabPanel from "@/components/CustomTabPanel";
 import TrainingSettings from "@/components/settings/TrainingSettings";
+import DatasetSetting from "@/components/settings/DatasetSetting";
+import NeuralNetworkSetting from "@/components/settings/NeuralNetworkSetting";
 
 const menuItems = [
     {title: '几何', children: ['软件绘制', '外部导入', '导出几何数据', '几何预处理', '网格设置']},
@@ -17,7 +16,7 @@ const menuItems = [
     {title: '后处理', children: ['数据归一化与还原', '拟合信号处理等', '制作多图或动画', '结果保存']},
 ];
 
-export default function SettingMenu({show = true}: { show: boolean }) {
+export default function SettingMenu() {
     const [value, setValue] = useState(0);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -33,12 +32,8 @@ export default function SettingMenu({show = true}: { show: boolean }) {
 
     return (
         <div style={{
-            backgroundColor: '#182033',
-            padding: '10px',
-            overflow: 'auto',
-            height: '100%',
-            color: 'white',
-            display: show ? 'block' : 'none'
+            boxSizing: 'border-box',
+            padding: 10,
         }}>
             <Tabs
                 value={value} onChange={handleChange} aria-label="tabs"
@@ -56,10 +51,10 @@ export default function SettingMenu({show = true}: { show: boolean }) {
                 <GeometrySetting/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-                数据集
+                <DatasetSetting/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-                神经网络
+                <NeuralNetworkSetting/>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={3}>
                 <TrainingSettings/>
@@ -70,19 +65,5 @@ export default function SettingMenu({show = true}: { show: boolean }) {
             <CustomTabPanel value={value} index={5}>
                 后处理
             </CustomTabPanel>
-            {/*<Tabs tabBarStyle={{color: `${PRIMARY_COLOR} !important`}}*/}
-            {/*      items={menuItems.map((item, index) => {*/}
-            {/*          if (index === 0) {*/}
-            {/*              return {*/}
-            {/*                  'key': index.toString(), 'label': item.title,*/}
-            {/*                  'children': GeometrySetting()*/}
-            {/*              }*/}
-            {/*          }*/}
-            {/*          return {*/}
-            {/*              'key': index.toString(), 'label': item.title,*/}
-            {/*              'children': buildChildren(item.children)*/}
-            {/*          }*/}
-            {/*      })}>*/}
-            {/*</Tabs>*/}
         </div>);
 }
